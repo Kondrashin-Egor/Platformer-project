@@ -31,7 +31,7 @@ public class Hero : MonoBehaviour
         {
             Run();
         }
-        if (is_ground && Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
@@ -47,22 +47,26 @@ public class Hero : MonoBehaviour
 
     private void Jump()
     {
-        rigidbody2D.AddForce(transform.up * jump_force, ForceMode2D.Impulse);
+        if (is_ground) 
+        {
+            rigidbody2D.AddForce(transform.up * jump_force, ForceMode2D.Impulse);
+        }
+        
     }
 
     private void CheckGround()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 0.5f);
         is_ground = collider.Length > 0;
         if (is_ground)
         {
-            Debug.Log("Yes!!!");
-            Debug.Log(collider.Length);
+            //Debug.Log("Yes!!!");
+            //Debug.Log(collider.Length);
         }
         else 
         {
-            Debug.Log("No!!!");
-            Debug.Log(collider.Length);
+            //Debug.Log("No!!!");
+            //Debug.Log(collider.Length);
         }
     }
 
