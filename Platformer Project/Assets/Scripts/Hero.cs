@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f; 
+    [SerializeField] private float speed = 3f; 
     [SerializeField] private int lives = 5; 
     [SerializeField] private float jump_force = 10f;
     private bool is_ground = false; 
@@ -67,6 +67,13 @@ public class Hero : MonoBehaviour
         {
             //Debug.Log("No!!!");
             //Debug.Log(collider.Length);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D  collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+        {
+            speed = 5f;
         }
     }
 

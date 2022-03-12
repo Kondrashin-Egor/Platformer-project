@@ -8,11 +8,12 @@ public class StartExitLevel : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D  collision)
     {
-        Debug.Log("HJP");
-        if (collision.gameObject.tag == "Player" )
+        if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("*****");
-            SceneManager.LoadScene(1);
+            if (Input.GetButton("Vertical"))
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 }

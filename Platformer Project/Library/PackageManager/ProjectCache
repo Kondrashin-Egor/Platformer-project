@@ -6,7 +6,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637824345576131452
+      ticks: 637826873186485726
     m_Hash: 1963595001
   m_LockFileStatus:
     m_FilePath: C:/Users/e.kondrashin/Documents/GitHub/Platformer-project/Platformer
@@ -15,7 +15,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637824345576258351
+      ticks: 637826873186485726
     m_Hash: 2886197185
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -147,13 +147,6 @@ m_PackageAssets:
         - 2.1.0-preview.5
         - 2.1.0-preview.6
         compatible:
-        - 1.13.5
-        - 1.14.1
-        - 1.14.4
-        - 1.14.7
-        - 1.14.9
-        - 1.14.12
-        - 1.14.13
         - 1.15.1
         - 1.15.4
         - 1.15.7
@@ -170,7 +163,7 @@ m_PackageAssets:
         - 2.1.0-preview.3
         - 2.1.0-preview.5
         - 2.1.0-preview.6
-        verified: 1.13.5
+        verified: 1.15.13
       dependencies:
       - name: com.unity.services.core
         version: 1.0.1
@@ -2579,4 +2572,4 @@ m_PackageAssets:
     m_LocalFileStatus: []
 m_ProjectPath: C:/Users/e.kondrashin/Documents/GitHub/Platformer-project/Platformer
   Project/Packages
-m_EditorVersion: 2020.3.21f1 (a38c86f6690f)
+m_EditorVersion: 2020.3.23f1 (c5d91304a876)
