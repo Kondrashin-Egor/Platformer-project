@@ -18,5 +18,15 @@ public class MoveGround : MonoBehaviour
     {
         Vector3 dir = transform.right * 1;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
+        for (int i = 0; i < 126; i++)
+        {
+            
+        }
+        //for (int i; i > 0; i--)
+        {
+            //Vector3 dir = transform.right * 1;
+            //transform.position = Vector3.MoveTowards(transform.position, transform.position - dir, speed * Time.deltaTime);
+        }
+        
     }
 }

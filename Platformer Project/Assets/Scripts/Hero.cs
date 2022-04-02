@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System;
+using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
 {
@@ -8,17 +11,26 @@ public class Hero : MonoBehaviour
     [SerializeField] private int lives = 5; 
     [SerializeField] private float jump_force = 10f;
     public LayerMask whatIsGround;
-    public GameObject GroundCheak;
+    public Transform GroundCheak;
+    private static Hero instance;
+    public GameObject Template;
+    
     private bool is_ground = false; 
 
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer sprite;
     public Animator animation;
 
+    //void Awake()
+    //{
+        //instance = this;
+    //}
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        instance = this;
     }
 
     private void FixedUpdate()
@@ -37,6 +49,7 @@ public class Hero : MonoBehaviour
         {
             Jump();
         }
+        GameOver();
         
     }
 
@@ -62,12 +75,24 @@ public class Hero : MonoBehaviour
         is_ground = collider.Length > 0;
         Debug.Log(collider.Length);
     }
-    private void OnCollisionEnter2D(Collision2D  collision)
+    private void GameOver()
     {
-        if (collision.gameObject.tag == "Finish")
+        if (transform.position.y <= -5)
         {
-            speed = 5f;
+            //Destroy(gameObject);
+            GameObject gameOverBox = Instantiate(instance.Template);
+
+            Transform panel = gameOverBox.transform.Find("Panel");
+
+            Button RestartLevel = panel.Find("RestartLevel").GetComponent<Button>();
+
+            RestartLevel.onClick.AddListener(() =>
+            {
+                Destroy(gameOverBox);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            });
         }
+
     }
 
 }
