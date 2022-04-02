@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
-
 
 public class MovePlayer : MonoBehaviour
 {
@@ -11,10 +8,11 @@ public class MovePlayer : MonoBehaviour
     public float speed;
     private float moveInput;
     private Rigidbody2D rb;
-    public bool facingRight = true;
+    private bool facingRight = true;
+    public Animator animation;
 
 
-   //Jump
+    //Jump
     public float jumpForce;
     private bool isGround;
     public Transform groundchek;
@@ -23,25 +21,22 @@ public class MovePlayer : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
 
-    Animator animka;
-
-
     void Start()
     {
          rb = GetComponent<Rigidbody2D>();
-         animka = GetComponent<Animator>();
     }
 
 
     void Update()
     {
-        
+        animation.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal") * speed));
         if (isGround == true)
         {
+            Debug.Log("True");
             ExtraJump = extraJumpsValue;
         }
 
-     
+
         if (Input.GetKeyDown(KeyCode.Space) && ExtraJump > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
@@ -53,14 +48,30 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
-void FixedUpdate()
+    void FixedUpdate()
     {
+        Debug.Log(isGround);
         isGround = Physics2D.OverlapCircle(groundchek.position, checkRadius, whatIsGround);
-
+        Debug.Log(isGround);
         moveInput = Input.GetAxis("Horizontal");       
-        animka.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal") * speed));
+
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
 
+        if (facingRight == false && moveInput > 0)
+        {
+            Flip();
+        }
+        else if (facingRight == true && moveInput < 0)
+        {
+            Flip();
+        }
+
+    }
+
+     void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 }

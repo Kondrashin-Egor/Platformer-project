@@ -7,6 +7,8 @@ public class Hero : MonoBehaviour
     [SerializeField] private float speed = 3f; 
     [SerializeField] private int lives = 5; 
     [SerializeField] private float jump_force = 10f;
+    public LayerMask whatIsGround;
+    public GameObject GroundCheak;
     private bool is_ground = false; 
 
     private Rigidbody2D rigidbody2D;
@@ -56,18 +58,9 @@ public class Hero : MonoBehaviour
 
     private void CheckGround()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 0.5f);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(GroundCheak.transform.position, 1f, whatIsGround);
         is_ground = collider.Length > 0;
-        if (is_ground)
-        {
-            //Debug.Log("Yes!!!");
-            //Debug.Log(collider.Length);
-        }
-        else 
-        {
-            //Debug.Log("No!!!");
-            //Debug.Log(collider.Length);
-        }
+        Debug.Log(collider.Length);
     }
     private void OnCollisionEnter2D(Collision2D  collision)
     {
