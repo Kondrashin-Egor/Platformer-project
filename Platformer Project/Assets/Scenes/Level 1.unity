@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 876022484828868868, guid: 4e88615d11887d34287b91a42bed07d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 876022484828868868, guid: 4e88615d11887d34287b91a42bed07d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -418,7 +418,7 @@ PrefabInstance:
     - target: {fileID: 8768828796105860406, guid: 34a0b9236140ae54ba10b9b4cc306ccf, type: 3}
       propertyPath: Template
       value: 
-      objectReference: {fileID: 5350100234508354750, guid: d03eba495ef7ea1449c3059de0a91106, type: 3}
+      objectReference: {fileID: 2097366902120889077, guid: 3d2417263b4bd56418b530d6c07c7d2a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34a0b9236140ae54ba10b9b4cc306ccf, type: 3}
 --- !u!1 &101687339 stripped
@@ -8030,11 +8030,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448873792}
-  - component: {fileID: 1448873793}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8047,27 +8046,11 @@ Transform:
   m_GameObject: {fileID: 1448873791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1588481505}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1448873793
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448873791}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0056740344, y: 0.045203418}
-  serializedVersion: 2
-  m_Radius: 0.3401691
 --- !u!1 &1511591528
 GameObject:
   m_ObjectHideFlags: 0
@@ -8248,7 +8231,7 @@ GameObject:
   - component: {fileID: 1588481515}
   - component: {fileID: 1588481514}
   m_Layer: 0
-  m_Name: Hero
+  m_Name: Hero 1 location
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8324,7 +8307,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.047579527, y: -0.04289472}
+  m_Offset: {x: 0.0016509295, y: -0.26443183}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8335,7 +8318,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4451604, y: 1.8966529}
+  m_Size: {x: 1.0359261, y: 1.8474224}
   m_EdgeRadius: 0
 --- !u!212 &1588481514
 SpriteRenderer:

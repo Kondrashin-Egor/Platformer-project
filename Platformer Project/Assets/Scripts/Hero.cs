@@ -40,14 +40,21 @@ public class Hero : MonoBehaviour
 
     private void Update()
     {
+        animation.SetBool("OnGround", is_ground);
         animation.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal") * speed));
         if (Input.GetButton("Horizontal"))
         {
             Run();
         }
+        if (Input.GetButton("Fire3"))
+        {
+            speed = 4f;
+            Run();
+        }
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+            // animation.SetBool("Jump", true);
         }
         GameOver();
         
@@ -56,6 +63,7 @@ public class Hero : MonoBehaviour
     private void Run()
     {
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
+        Debug.Log(speed);
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
         sprite.flipX = dir.x < 0.0f;
     }
@@ -67,13 +75,13 @@ public class Hero : MonoBehaviour
             rigidbody2D.AddForce(transform.up * jump_force, ForceMode2D.Impulse);
         }
         
+        
     }
-
     private void CheckGround()
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(GroundCheak.transform.position, 1f, whatIsGround);
         is_ground = collider.Length > 0;
-        Debug.Log(collider.Length);
+        //Debug.Log(collider.Length);
     }
     private void GameOver()
     {
