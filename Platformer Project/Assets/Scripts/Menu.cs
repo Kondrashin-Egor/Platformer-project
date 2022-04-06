@@ -9,6 +9,15 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void FirstLocation()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void ThirdLocation()
+    {
+        SceneManager.LoadScene(3);
+    }
 
     public void RestartLevel()
     {

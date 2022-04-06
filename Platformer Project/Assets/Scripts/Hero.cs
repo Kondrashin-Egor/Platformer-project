@@ -44,6 +44,7 @@ public class Hero : MonoBehaviour
         animation.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal") * speed));
         if (Input.GetButton("Horizontal"))
         {
+            speed = 3f;
             Run();
         }
         if (Input.GetButton("Fire3"))

@@ -854,6 +854,7 @@ GameObject:
   - component: {fileID: 1183296225}
   - component: {fileID: 1183296224}
   - component: {fileID: 1183296223}
+  - component: {fileID: 1183296227}
   - component: {fileID: 1183296226}
   m_Layer: 5
   m_Name: 3 Location
@@ -925,7 +926,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1183296224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1183296227}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: ThirdLocation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1183296224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,6 +996,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1183296227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183296221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aad237e9a6de541a7ce7b141c7a054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1235626841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,7 +1398,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1563138150}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: Next
+        m_MethodName: FirstLocation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
