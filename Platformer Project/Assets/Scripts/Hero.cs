@@ -89,6 +89,9 @@ public class Hero : MonoBehaviour
         if (transform.position.y <= -5)
         {
             //Destroy(gameObject);
+            gameObject.SetActive(false);
+            var hero = GetComponent<Hero>();
+            hero.enabled = false;
             GameObject gameOverBox = Instantiate(instance.Template);
 
             Transform panel = gameOverBox.transform.Find("Panel");

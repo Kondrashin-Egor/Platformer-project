@@ -10,6 +10,7 @@ public class Portals : MonoBehaviour
     private static Portals instance;
 
     public GameObject Template;
+    // public GameObject hero;
     
     void Awake()
     {
@@ -21,6 +22,8 @@ public class Portals : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.SetActive(false);
+            
             GameObject endBox = Instantiate(instance.Template);
 
             Transform panel = endBox.transform.Find("Panel");

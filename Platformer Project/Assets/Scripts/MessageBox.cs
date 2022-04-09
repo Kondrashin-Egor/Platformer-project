@@ -9,6 +9,7 @@ public class MessageBox : MonoBehaviour {
     private static MessageBox instance;
 
     public GameObject Template;
+    // public GameObject hero;
 
 	// Use this for initialization
 	void Awake () {
@@ -17,6 +18,7 @@ public class MessageBox : MonoBehaviour {
 
     public static void ShowMassage(string text)
     {
+        // Hero.SetActive(false);
         GameObject massageBox = Instantiate(instance.Template);
 
         Transform panel = massageBox.transform.Find("Panel");
