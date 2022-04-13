@@ -14,9 +14,14 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void ThirdLocation()
+    public void SecondLocation()
     {
         SceneManager.LoadScene(3);
+    }
+
+    public void ThirdLocation()
+    {
+        SceneManager.LoadScene(4);
     }
 
     public void RestartLevel()
