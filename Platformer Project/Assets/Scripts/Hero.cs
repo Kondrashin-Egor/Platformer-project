@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f; 
+    [SerializeField] private int speed = 0; 
     [SerializeField] private int lives = 5; 
     [SerializeField] private float jump_force = 10f;
     public LayerMask whatIsGround;
@@ -40,31 +40,43 @@ public class Hero : MonoBehaviour
 
     private void Update()
     {
-        animation.SetBool("OnGround", is_ground);
-        animation.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal") * speed));
         if (Input.GetButton("Horizontal"))
         {
-            speed = 3f;
+            speed = 3;
+            if (Input.GetButtonDown("Fire3"))
+                {
+                    speed = 5;
+                }
             Run();
         }
-        if (Input.GetButton("Fire3"))
+        else if (Input.GetButtonUp("Horizontal"))
         {
-            speed = 4f;
-            Run();
+            speed = 0;
         }
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
-            // animation.SetBool("Jump", true);
         }
+        Debug.Log(speed);
+        if (speed == 3)
+        {
+            animation.SetInteger("Speed", 3);
+        }
+        if (speed == 5)
+        {
+            animation.SetInteger("Speed", 5);
+        }
+        animation.SetInteger("Speed", speed);
+        animation.SetBool("OnGround", is_ground);
+        //Mathf.Abs(Input.GetAxis("Horizontal") * speed));
         GameOver();
+        
         
     }
 
     private void Run()
     {
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
-        Debug.Log(speed);
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
         sprite.flipX = dir.x < 0.0f;
     }
