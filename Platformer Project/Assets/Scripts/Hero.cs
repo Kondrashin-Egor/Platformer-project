@@ -7,9 +7,11 @@ using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
 {
-    [SerializeField] private int speed = 0; 
-    [SerializeField] private int lives = 5; 
-    [SerializeField] private float jump_force = 10f;
+    [SerializeField] private float speed; 
+    [SerializeField] private float FastSpeed; 
+    [SerializeField] private int lives; 
+    [SerializeField] private float jump_force;
+    private float RealSpeed;
     public LayerMask whatIsGround;
     public Transform GroundCheak;
     private static Hero instance;
@@ -25,6 +27,14 @@ public class Hero : MonoBehaviour
     //{
         //instance = this;
     //}
+
+    private void Start()
+    {
+        speed = 3f; 
+        FastSpeed = 3.1f; 
+        lives = 5; 
+        jump_force = 8f;
+    }
 
     private void Awake()
     {
@@ -42,31 +52,19 @@ public class Hero : MonoBehaviour
     {
         if (Input.GetButton("Horizontal"))
         {
-            speed = 3;
-            if (Input.GetButtonDown("Fire3"))
-                {
-                    speed = 5;
-                }
+            RealSpeed = speed;
             Run();
         }
-        else if (Input.GetButtonUp("Horizontal"))
+        if (Input.GetButton("Horizontal") && Input.GetButton("Fire3"))
         {
-            speed = 0;
+            RealSpeed = FastSpeed;
+            Run();
         }
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
-        Debug.Log(speed);
-        if (speed == 3)
-        {
-            animation.SetInteger("Speed", 3);
-        }
-        if (speed == 5)
-        {
-            animation.SetInteger("Speed", 5);
-        }
-        animation.SetInteger("Speed", speed);
+        animation.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal") * RealSpeed));
         animation.SetBool("OnGround", is_ground);
         //Mathf.Abs(Input.GetAxis("Horizontal") * speed));
         GameOver();
@@ -77,7 +75,7 @@ public class Hero : MonoBehaviour
     private void Run()
     {
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, RealSpeed * Time.deltaTime);
         sprite.flipX = dir.x < 0.0f;
     }
 
