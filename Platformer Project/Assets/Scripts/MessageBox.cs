@@ -10,13 +10,12 @@ public class MessageBox : MonoBehaviour {
 
     public GameObject Template;
     public GameObject GO;
-    private Collider2D collision;
+    //private Collider2D collision;
     // public GameObject hero;
 
 	// Use this for initialization
 	void Awake () {
         instance = this;
-        collision = GO.GetComponent(BoxCollider2D);
     }
 
     public static void ShowMassage(string text)
@@ -33,7 +32,7 @@ public class MessageBox : MonoBehaviour {
 
         yes.onClick.AddListener(() =>
         {
-            //if (GO.gameObject.CompareTag("Target1"))
+            //if (GO.CompareTag("Target1"))
             {
                 if (CoinText.CountTarget1 == 0)
                 {
