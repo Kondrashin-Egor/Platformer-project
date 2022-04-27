@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Coins
   - Death
+  - Target1
+  - Target2
+  - Target3
+  - Coins
   layers:
   - Default
   - TransparentFX
