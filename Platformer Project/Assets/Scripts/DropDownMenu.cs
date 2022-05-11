@@ -7,21 +7,23 @@ public class DropDownMenu : MonoBehaviour
 {
     public Text main;   
     public int rightValue;
+    private int lastValue = 0;
     public void InputMenu(int value)
     {
+        Debug.Log("LV" + lastValue);
         if (value == rightValue)
         {
-            Debug.Log(CoinText.Coin);
             CoinText.Coin ++;
         }
         else
         {
             Debug.Log(CoinText.Coin);
-            if (CoinText.Coin != 0)
+            if (CoinText.Coin != 0 && lastValue == rightValue)
             {
                 CoinText.Coin --;
             }
         }
         main.text = CoinText.Coin.ToString();
+        lastValue = value;
     }
 }

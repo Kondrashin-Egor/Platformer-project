@@ -30,10 +30,12 @@ public class Portals : MonoBehaviour
 
             Button yes = panel.Find("Yes").GetComponent<Button>();
 
+            CoinText.Coin = 0;
+
             yes.onClick.AddListener(() =>
             {
                 Destroy(endBox);
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             });
         }
     }

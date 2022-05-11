@@ -52,17 +52,17 @@ public class StarsControl : MonoBehaviour
         // ===================
 
 
-        if(CoinText.Coin >= 1)
+        if(CoinText.Coin == 1)
         {
             openStar1();
         }
 
-        if (CoinText.Coin >= 2)
+        if (CoinText.Coin == 2)
         {
             openStar2();
         }
 
-        if (CoinText.Coin >= 3)
+        if (CoinText.Coin == 3)
         {
             openStar3();
         }

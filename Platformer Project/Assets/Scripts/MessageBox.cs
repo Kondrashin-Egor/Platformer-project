@@ -10,7 +10,7 @@ public class MessageBox : MonoBehaviour {
     private static MessageBox instance2;
     public GameObject Template;
     public Text t;
-    //private static Text info = t;
+    private static Text info;
     
 
 	// Use this for initialization
@@ -20,6 +20,7 @@ public class MessageBox : MonoBehaviour {
 
     public void ShowMassage(string text)
     {
+        info = t;
         // Hero.SetActive(false);
         GameObject massageBox = Instantiate(instance.Template);
 
