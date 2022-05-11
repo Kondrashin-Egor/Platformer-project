@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
 using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
@@ -18,13 +15,13 @@ public class Hero : MonoBehaviour
     public GameObject Template;
     
     private bool is_ground = false; 
-    private bool target1 = false;
-    private bool target2 = false;
-    private bool target3 = false;
+    //private bool target1 = false;
+    //private bool target2 = false;
+    //private bool target3 = false;
 
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     private SpriteRenderer sprite;
-    public Animator animation;
+    public new Animator animation;
 
     //void Awake()
     //{
@@ -118,20 +115,20 @@ public class Hero : MonoBehaviour
             });
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Target1")
-        {
-            target1 = true;
-        }
-        else if (collision.gameObject.tag == "Target2")
-        {
-            target2 = true;
-        }
-        else if (collision.gameObject.tag == "Target3")
-        {
-            target3 = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+        //if (collision.gameObject.tag == "Target1")
+        //{
+            //target1 = true;
+        //}
+        //else if (collision.gameObject.tag == "Target2")
+        //{
+            //target2 = true;
+        //}
+        //else if (collision.gameObject.tag == "Target3")
+        //{
+            //target3 = true;
+        //}
+    //}
 
 }

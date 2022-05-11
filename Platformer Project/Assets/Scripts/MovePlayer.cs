@@ -9,7 +9,7 @@ public class MovePlayer : MonoBehaviour
     private float moveInput;
     private Rigidbody2D rb;
     private bool facingRight = true;
-    public Animator animation;
+    public new Animator animation;
 
 
     //Jump
