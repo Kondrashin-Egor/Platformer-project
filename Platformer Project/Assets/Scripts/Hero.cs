@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Hero : MonoBehaviour
 {
@@ -101,7 +102,17 @@ public class Hero : MonoBehaviour
             gameObject.SetActive(false);
             var hero = GetComponent<Hero>();
             hero.enabled = false;
-            MessageBox.ShowMassage(-1);
+            GameObject messageBox = Instantiate(instance.Template);
+
+            Transform panel = messageBox.transform.Find("Panel");
+
+            Button yes = panel.Find("Yes").GetComponent<Button>();
+
+            yes.onClick.AddListener(() =>
+            {
+                Destroy(messageBox);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            });
         }
     }
 }

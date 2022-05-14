@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Portals : MonoBehaviour
 {
@@ -22,7 +23,18 @@ public class Portals : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.SetActive(false);
-            MessageBox.ShowMassage(1);
-        }
+            GameObject messageBox = Instantiate(instance.Template);
+
+            Transform panel = messageBox.transform.Find("Panel");
+
+            Button yes = panel.Find("Yes").GetComponent<Button>();
+
+            yes.onClick.AddListener(() =>
+            {
+                Destroy(messageBox);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                CoinText.CountStars1 = 0;
+            });
+            }
     }
 }

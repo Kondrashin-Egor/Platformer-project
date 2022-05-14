@@ -46,23 +46,37 @@ public class StarsControl : MonoBehaviour
             star2.SetActive(true);
             star3.SetActive(true);
         }
-        
-        if(CoinText.CountStars1 == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            ChekCountStars(CoinText.CountStars1);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            ChekCountStars(CoinText.CountStars2);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            ChekCountStars(CoinText.CountStars3);
+        }
+    }
+
+    private void ChekCountStars(int CountStars)
+    {
+        if(CountStars == 1)
         {
             openStar1();
         }
 
-        if (CoinText.CountStars1 == 2)
+        if (CountStars == 2)
         {
             openStar2();
         }
 
-        if (CoinText.CountStars1 == 3)
+        if (CountStars == 3)
         {
             openStar3();
         }
     }
-
 
     public void openStar1()
     {
@@ -80,10 +94,5 @@ public class StarsControl : MonoBehaviour
     {
         open_star3 = 2;
         PlayerPrefs.SetInt("stars3", open_star3);
-    }
-
-    public void goToOneLvl()
-    {
-        SceneManager.LoadScene(1);
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CoinText : MonoBehaviour
 {
     public static int CountStars1;
+    public static int CountStars2;
+    public static int CountStars3;
     Text text;
     void Start()
     {

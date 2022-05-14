@@ -9,39 +9,26 @@ public class MessageBox : MonoBehaviour {
 
     private static MessageBox instance;
     public GameObject Template;
-    [SerializeField] private static Text info;
+    public Text info;
 
 	// Use this for initialization
 	void Awake () {
         instance = this;
     }
-
-    public static void ShowMassage(int action)
+    public void ShowMessage()
     {
-        GameObject massageBox = Instantiate(instance.Template);
+        GameObject messageBox = Instantiate(instance.Template);
 
-        Transform panel = massageBox.transform.Find("Panel");
+        Transform panel = messageBox.transform.Find("Panel");
 
-        Text massageBoxText = panel.Find("Text").GetComponent<Text>();
-
-        if (action == 0)
-        {
-            massageBoxText.text = info.text;
-        }
+        Text messageBoxText = panel.Find("Text").GetComponent<Text>();
+        messageBoxText.text = info.text;
 
         Button yes = panel.Find("Yes").GetComponent<Button>();
 
         yes.onClick.AddListener(() =>
         {
-            Destroy(massageBox);
-            if (action == -1)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-            else if (action == 1)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
+            Destroy(messageBox);
         });
     }
 }
