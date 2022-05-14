@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CoinText : MonoBehaviour
 {
-    public static int Coin;
+    public static int CountStars1;
     Text text;
     void Start()
     {
@@ -15,7 +15,7 @@ public class CoinText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = Coin.ToString();
-        Debug.Log((Coin).ToString());
+        text.text = CountStars1.ToString();
+        Debug.Log((CountStars1).ToString());
     }
 }

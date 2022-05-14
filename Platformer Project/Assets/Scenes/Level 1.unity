@@ -268,10 +268,10 @@ PrefabInstance:
     - target: {fileID: 3717450567286284797, guid: 9e38a5e296153a449a7d0cd3f0ad3c09, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11456034}
+      objectReference: {fileID: 11456033}
     - target: {fileID: 3717450567286284797, guid: 9e38a5e296153a449a7d0cd3f0ad3c09, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowMassage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7201483641222693164, guid: 9e38a5e296153a449a7d0cd3f0ad3c09, type: 3}
       propertyPath: t
@@ -393,7 +393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Template: {fileID: 1749005017800628, guid: e18184bbfd1660e41864a2b0d22c0287, type: 3}
-  t: {fileID: 1188594502}
 --- !u!1 &51313293 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3291454778797933078, guid: 9e38a5e296153a449a7d0cd3f0ad3c09, type: 3}
@@ -412,7 +411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Template: {fileID: 1749005017800628, guid: e18184bbfd1660e41864a2b0d22c0287, type: 3}
-  t: {fileID: 1403763016}
 --- !u!1001 &77987271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -495,7 +493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bbe760ac725d147b69bad7d65904f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!60 &101687343
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1595,7 +1592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Template: {fileID: 1749005017800628, guid: e18184bbfd1660e41864a2b0d22c0287, type: 3}
-  t: {fileID: 659698537}
 --- !u!1001 &278145073
 PrefabInstance:
   m_ObjectHideFlags: 0

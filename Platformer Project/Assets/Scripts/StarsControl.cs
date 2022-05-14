@@ -10,6 +10,7 @@ public class StarsControl : MonoBehaviour
     public static int open_star1, open_star2, open_star3;
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         open_star1 = PlayerPrefs.GetInt("stars1", 1);
         open_star2 = PlayerPrefs.GetInt("stars2", 1);
         open_star3 = PlayerPrefs.GetInt("stars3", 1);
@@ -22,47 +23,41 @@ public class StarsControl : MonoBehaviour
         {
             star1.SetActive(false);
         }
-
         if (open_star1 == 2)
         {
             star1.SetActive(true);
         }
-
         if (open_star2 == 1)
         {
             star2.SetActive(false);
         }
-
         if (open_star2 == 2)
         {
+            star1.SetActive(true);
             star2.SetActive(true);
         }
-
         if (open_star3 == 1)
         {
             star3.SetActive(false);
         }
-
         if (open_star3 == 2)
         {
+            star1.SetActive(true);
+            star2.SetActive(true);
             star3.SetActive(true);
         }
-
-
-        // ===================
-
-
-        if(CoinText.Coin == 1)
+        
+        if(CoinText.CountStars1 == 1)
         {
             openStar1();
         }
 
-        if (CoinText.Coin == 2)
+        if (CoinText.CountStars1 == 2)
         {
             openStar2();
         }
 
-        if (CoinText.Coin == 3)
+        if (CoinText.CountStars1 == 3)
         {
             openStar3();
         }

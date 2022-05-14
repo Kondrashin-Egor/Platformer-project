@@ -3,37 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MessageBox : MonoBehaviour {
 
     private static MessageBox instance;
-    private static MessageBox instance2;
     public GameObject Template;
-    public Text t;
-    private static Text info;
-    
+    [SerializeField] private static Text info;
 
 	// Use this for initialization
 	void Awake () {
         instance = this;
     }
 
-    public void ShowMassage(string text)
+    public static void ShowMassage(int action)
     {
-        info = t;
-        // Hero.SetActive(false);
         GameObject massageBox = Instantiate(instance.Template);
 
         Transform panel = massageBox.transform.Find("Panel");
 
         Text massageBoxText = panel.Find("Text").GetComponent<Text>();
-        massageBoxText.text = info.text;
+
+        if (action == 0)
+        {
+            massageBoxText.text = info.text;
+        }
 
         Button yes = panel.Find("Yes").GetComponent<Button>();
 
         yes.onClick.AddListener(() =>
         {
             Destroy(massageBox);
+            if (action == -1)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            else if (action == 1)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         });
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.UI;
 
@@ -23,20 +22,7 @@ public class Portals : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.SetActive(false);
-            
-            GameObject endBox = Instantiate(instance.Template);
-
-            Transform panel = endBox.transform.Find("Panel");
-
-            Button yes = panel.Find("Yes").GetComponent<Button>();
-
-            CoinText.Coin = 0;
-
-            yes.onClick.AddListener(() =>
-            {
-                Destroy(endBox);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            });
+            MessageBox.ShowMassage(1);
         }
     }
 }

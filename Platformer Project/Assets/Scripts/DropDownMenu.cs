@@ -13,17 +13,17 @@ public class DropDownMenu : MonoBehaviour
         Debug.Log("LV" + lastValue);
         if (value == rightValue)
         {
-            CoinText.Coin ++;
+            CoinText.CountStars1 ++;
         }
         else
         {
-            Debug.Log(CoinText.Coin);
-            if (CoinText.Coin != 0 && lastValue == rightValue)
+            Debug.Log(CoinText.CountStars1);
+            if (CoinText.CountStars1 != 0 && lastValue == rightValue)
             {
-                CoinText.Coin --;
+                CoinText.CountStars1 --;
             }
         }
-        main.text = CoinText.Coin.ToString();
+        main.text = CoinText.CountStars1.ToString();
         lastValue = value;
     }
 }

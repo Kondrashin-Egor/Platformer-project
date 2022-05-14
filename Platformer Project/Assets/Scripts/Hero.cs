@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
@@ -102,33 +101,7 @@ public class Hero : MonoBehaviour
             gameObject.SetActive(false);
             var hero = GetComponent<Hero>();
             hero.enabled = false;
-            GameObject gameOverBox = Instantiate(instance.Template);
-
-            Transform panel = gameOverBox.transform.Find("Panel");
-
-            Button RestartLevel = panel.Find("RestartLevel").GetComponent<Button>();
-
-            RestartLevel.onClick.AddListener(() =>
-            {
-                Destroy(gameOverBox);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            });
+            MessageBox.ShowMassage(-1);
         }
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-        //if (collision.gameObject.tag == "Target1")
-        //{
-            //target1 = true;
-        //}
-        //else if (collision.gameObject.tag == "Target2")
-        //{
-            //target2 = true;
-        //}
-        //else if (collision.gameObject.tag == "Target3")
-        //{
-            //target3 = true;
-        //}
-    //}
-
 }
