@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 8747281877119740954}
   - component: {fileID: 7459392448342971100}
   m_Layer: 5
-  m_Name: RestartLevel
+  m_Name: Yes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

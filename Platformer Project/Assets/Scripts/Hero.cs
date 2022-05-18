@@ -15,9 +15,6 @@ public class Hero : MonoBehaviour
     public GameObject Template;
     
     private bool is_ground = false; 
-    //private bool target1 = false;
-    //private bool target2 = false;
-    //private bool target3 = false;
 
     private new Rigidbody2D rigidbody2D;
     private SpriteRenderer sprite;
@@ -55,10 +52,13 @@ public class Hero : MonoBehaviour
             RealSpeed = speed;
             Run();
         }
-        if (Input.GetButton("Horizontal") && Input.GetButton("Fire3"))
+        if (Fast.fast)
         {
-            RealSpeed = FastSpeed;
-            Run();
+            if (Input.GetButton("Horizontal") && Input.GetButton("Fire3"))
+                {
+                    RealSpeed = FastSpeed;
+                    Run();
+                }
         }
         if (Input.GetButtonDown("Jump"))
         {
