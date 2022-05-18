@@ -33,8 +33,12 @@ public class Portals : MonoBehaviour
             {
                 Destroy(messageBox);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                CoinText.CountStars1 = 0;
+                //CoinText.CountStars2 = 0;
             });
             }
+    }
+    void Update()
+    {
+        
     }
 }

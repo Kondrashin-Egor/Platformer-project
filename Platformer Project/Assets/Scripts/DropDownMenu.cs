@@ -2,28 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DropDownMenu : MonoBehaviour
 {
     public Text main;   
     public int rightValue;
+    //public int sceneIndex;
     private int lastValue = 0;
+
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            StarsControl1.CountStars1 = 0;
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            StarsControl1.CountStars2 = 0;
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 9)
+        {
+           StarsControl1.CountStars3 = 0;
+        }
+    }
     public void InputMenu(int value)
     {
-        Debug.Log("LV" + lastValue);
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            StarsControl1.CountStars1 += LogicTest1(value, StarsControl1.CountStars1);
+            //Debug.Log("First " + CoinText.CountStars1);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            //Debug.Log(LogicTest1(value, CoinText.CountStars2));
+            StarsControl1.CountStars2 += LogicTest1(value, StarsControl1.CountStars2);
+            Debug.Log("Second " + StarsControl1.CountStars2);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 9)
+        {
+            StarsControl1.CountStars3 += LogicTest1(value, StarsControl1.CountStars3);
+            //Debug.Log("Third " + CoinText.CountStars1);
+        }
+    }
+    private int LogicTest1(int value, int CountStars)
+    {
+        CountStars = 0;
         if (value == rightValue)
         {
-            CoinText.CountStars1 ++;
+            CountStars ++;
         }
         else
         {
-            Debug.Log(CoinText.CountStars1);
-            if (CoinText.CountStars1 != 0 && lastValue == rightValue)
+            if (lastValue == rightValue)
             {
-                CoinText.CountStars1 --;
+                CountStars --;
             }
         }
-        main.text = CoinText.CountStars1.ToString();
+        Debug.Log(CountStars);
         lastValue = value;
+        return CountStars;
     }
 }
