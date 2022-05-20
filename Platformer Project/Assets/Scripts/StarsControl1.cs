@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class StarsControl1 : MonoBehaviour
 {
     public GameObject star1, star2, star3, star4;
+    public GameObject button;
     public static int CountStars1;
     public static int CountStars2;
     public static int CountStars3;
 
     void Start()
     {
+        button.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
         star4.SetActive(false);
@@ -32,6 +34,7 @@ public class StarsControl1 : MonoBehaviour
         {
             ChekCountStars(CountStars3);
         }
+
         // Debug.Log(CoinText.CountStars1);
         
     }
@@ -43,6 +46,10 @@ public class StarsControl1 : MonoBehaviour
             star3.SetActive(false);
             star4.SetActive(false);
             star2.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex != 3)
+            {
+                button.SetActive(true);
+            }
         }
         else if (CountStars == 2)
         {
@@ -50,6 +57,10 @@ public class StarsControl1 : MonoBehaviour
             star2.SetActive(false);
             star4.SetActive(false);
             star3.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex != 3)
+            {
+                button.SetActive(true);
+            }
         }
 
         else if (CountStars == 3)
@@ -58,6 +69,10 @@ public class StarsControl1 : MonoBehaviour
             star2.SetActive(false);
             star3.SetActive(false);
             star4.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex != 3)
+            {
+                button.SetActive(true);
+            }
         }
         else
         {
@@ -65,6 +80,10 @@ public class StarsControl1 : MonoBehaviour
             star3.SetActive(false);
             star4.SetActive(false);
             star1.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                button.SetActive(false);
+            }
         }
 }
 }

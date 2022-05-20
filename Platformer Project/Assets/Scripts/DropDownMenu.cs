@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class DropDownMenu : MonoBehaviour
 {
-    public Text main;   
+    //public Text main
     public int rightValue;
+
+    public static int V1;
+    public static int V2;
+    public static int V3;
     //public int sceneIndex;
     private int lastValue = 0;
+    private int LastLastvalue = 0;
 
     void Start()
     {
@@ -37,7 +42,7 @@ public class DropDownMenu : MonoBehaviour
         {
             //Debug.Log(LogicTest1(value, CoinText.CountStars2));
             StarsControl1.CountStars2 += LogicTest1(value, StarsControl1.CountStars2);
-            Debug.Log("Second " + StarsControl1.CountStars2);
+            //Debug.Log("Second " + StarsControl1.CountStars2);
         }
         if (SceneManager.GetActiveScene().buildIndex == 9)
         {
@@ -59,8 +64,9 @@ public class DropDownMenu : MonoBehaviour
                 CountStars --;
             }
         }
-        Debug.Log(CountStars);
+        //Debug.Log(CountStars);
         lastValue = value;
+        LastLastvalue = lastValue;
         return CountStars;
     }
 }
