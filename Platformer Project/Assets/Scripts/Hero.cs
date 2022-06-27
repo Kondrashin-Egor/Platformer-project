@@ -13,6 +13,7 @@ public class Hero : MonoBehaviour
     public Transform GroundCheak;
     private static Hero instance;
     public GameObject Template;
+    public Joystick joystick;
     
     private bool is_ground = false; 
 
@@ -47,14 +48,14 @@ public class Hero : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Horizontal"))
+        if (Input.GetButton("Horizontal") || joystick.Horizontal != 0)
         {
             RealSpeed = speed;
             Run();
         }
         if (Fast.fast)
         {
-            if (Input.GetButton("Horizontal") && Input.GetButton("Fire3"))
+            if ((Input.GetButton("Horizontal") || joystick.Horizontal != 0) && Input.GetButton("Fire3"))
                 {
                     RealSpeed = FastSpeed;
                     Run();
@@ -64,7 +65,7 @@ public class Hero : MonoBehaviour
         {
             Jump();
         }
-        animation.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal") * RealSpeed));
+        animation.SetFloat("Speed", Mathf.Abs(joystick.Horizontal * RealSpeed));
         animation.SetBool("OnGround", is_ground);
         //Mathf.Abs(Input.GetAxis("Horizontal") * speed));
         GameOver();
@@ -74,7 +75,7 @@ public class Hero : MonoBehaviour
 
     private void Run()
     {
-        Vector3 dir = transform.right * Input.GetAxis("Horizontal");
+        Vector3 dir = transform.right * joystick.Horizontal;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, RealSpeed * Time.deltaTime);
         sprite.flipX = dir.x < 0.0f;
     }
